@@ -59,13 +59,13 @@ document.addEventListener('DOMContentLoaded', domReady);
                 }
                 switch (i) {
                     case 0:
-                        image.src = image.src + '/3dgs.png';
+                        image.src = image.src + '/3DGS.png';
                         break;
                     case 1:
-                        image.src = image.src + '/ours.png';
+                        image.src = image.src + '/Ours.png';
                         break;
                     case 2:
-                        image.src = image.src + '/gt.png';
+                        image.src = image.src + '/GT.png';
                         break;
                 }
             }
