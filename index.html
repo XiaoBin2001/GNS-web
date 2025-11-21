@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Gradient-Driven Natural Selection for Compact 3D Gaussian Splatting.">
+  <meta name="keywords" content="3DGS, Compact, Efficient">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gradient-Driven Natural Selection for Compact 3D Gaussian Splatting</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Font Awesome & Academicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Bulma Framework and Plugins -->
+  <link rel="stylesheet" href="././static/css/bulma.min.css">
+  <link rel="stylesheet" href="././static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="././static/css/bulma-slider.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="././static/images/favicon.svg">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Font Awesome JS (deferred) -->
+  <script defer src="././static/js/fontawesome.all.min.js"></script>
+
+  <!-- Bulma Plugins -->
+  <script src="././static/js/bulma-carousel.min.js"></script>
+  <script src="././static/js/bulma-slider.min.js"></script>
+  <script src="././static/js/index.js"></script>
+
+  <link rel="stylesheet" href="././static/css/bootstrap-4.4.1.css">
+  <link rel="stylesheet" href="././static/css/dics.original.css">
+  <script src="././static/js/event_handler.js"></script>
+  <script src="././static/js/dics.original.js"></script>
+
+  <link rel="stylesheet" href="././static/css/index.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Gradient-Driven Natural Selection for Compact 3D Gaussian Splatting</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://github.com/XiaoBin2001">Xiaobin Deng</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Qiuli Yu</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Changyu Diao</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Min Li</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Duanqing Xu</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Zhejiang University</span>
+            </div>
+
+            <div class="publication-links" style="margin-bottom: -5rem;">
+              <span class="link-block">
+                <a href="https://github.com/XiaoBin2001" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/XiaoBin2001" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/XiaoBin2001" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/figure_intro.png">
+            <img src="./static/images/figure_score_budget.png">
+            <p>
+              3DGS employs a large number of Gaussian primitives to fit scenes, resulting in substantial storage and computational overhead. 
+              Existing pruning methods rely on manually designed criteria or introduce additional learnable parameters, yielding suboptimal results. 
+              To address this, we propose an natural selection inspired pruning framework that models survival pressure as a regularization gradient field applied to opacity, allowing the optimization gradients—driven by the goal of maximizing rendering quality—to autonomously determine which Gaussians to retain or prune. 
+              This process is fully learnable and requires no human intervention. 
+              We further introduce an opacity decay technique with a finite opacity prior, which accelerates the selection process without compromising pruning effectiveness.
+              Compared to 3DGS, our method achieves over 0.6 dB PSNR gain under 15% budgets, establishing state-of-the-art performance for compact 3DGS.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Optimization process visualization</h2>
+          <div class="content has-text-justified">
+            <video controls width="100%">
+              <source src="./static/videos/video_psnr_num.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Qualitative comparison video</h2>
+          <div class="container">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="compare-4">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="CompareVideoEvent(0)">Bicycle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareVideoEvent(1)">Garden</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareVideoEvent(2)">Stump</a>
+                </li>
+            </ul>
+            <video id="compare-video" controls width="100%">
+              <source src="./static/videos/bicycle.mp4" type="video/mp4">
+            </video>
+        </div>
+        </div>
+      </div>
+    </div>      
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Experiments</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/quantitative.png" alt="Quantitative">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Point clouds visualization</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/point.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Qualitative comparison with 3DGS</h2>
+          <div class="container">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="compare-1">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="CompareEvent(0)">Bicycle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(1)">Flowers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(2)">Garden</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(3)">Stump</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(4)">Treehill</a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-tabs nav-fill nav-justified" id="compare-2">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(5)">Bonsai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(6)">Counter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(7)">Kitchen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(8)">Room</a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-tabs nav-fill nav-justified" id="compare-3">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(9)">Playroom</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(10)">Drjohnson</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(11)">Train</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="CompareEvent(12)">Truck</a>
+                </li>
+            </ul>
+
+            <div class="b-dics">
+                <img src="./static/images/bicycle/3dgs.png" alt="3DGS">
+                <img src="./static/images/bicycle/ours.png" alt="Ours">
+                <img src="./static/images/bicycle/gt.png" alt="GT">
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>      
+  </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More qualitative result</h2>
+        <div class="content has-text-justified">
+          <!-- 添加滑动容器 -->
+          <div class="image-slider">
+            <div class="slider-container">
+              <img src="./static/images/qualitative/bicycle_01.jpg">
+              <img src="./static/images/qualitative/flowers_01.jpg">
+              <img src="./static/images/qualitative/garden_01.jpg">
+              <img src="./static/images/qualitative/stump_01.jpg">
+              <img src="./static/images/qualitative/treehill_01.jpg">
+              <img src="./static/images/qualitative/bonsai_01.jpg">
+              <img src="./static/images/qualitative/counter_01.jpg">
+              <img src="./static/images/qualitative/kitchen_01.jpg">
+              <img src="./static/images/qualitative/room_01.jpg">
+              <img src="./static/images/qualitative/playroom_01.jpg">
+              <img src="./static/images/qualitative/drjohnson_01.jpg">
+              <img src="./static/images/qualitative/train_01.jpg">
+              <img src="./static/images/qualitative/truck_01.jpg">
+            </div>
+            <!-- 导航按钮 -->
+            <button class="slider-nav prev">&#10094;</button>
+            <button class="slider-nav next">&#10095;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 简单的滑动功能实现
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.querySelector('.slider-container');
+      const prevBtn = document.querySelector('.slider-nav.prev');
+      const nextBtn = document.querySelector('.slider-nav.next');
+      
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</section>
+
+
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://github.com/XiaoBin2001"><i class="fas fa-file-pdf"></i></a>
+        <a class="icon-link" href="https://github.com/XiaoBin2001"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+              This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+              The image comparison with sliding bar is from <a href="https://research.nvidia.com/labs/dir/neuralangelo/">Neuralangelo</a>. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
